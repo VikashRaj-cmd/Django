@@ -46,6 +46,52 @@ python manage.py createsuperuser
 ```
 
 See the per-project READMEs for more details.
+
+## Push to GitHub
+
+Two main options: use GitHub CLI (`gh`) or add a remote manually.
+
+Using `gh` (recommended):
+
+```powershell
+# create a new repo on GitHub under your account and set it as origin
+gh repo create <your-username>/<repo-name> --public --source=. --remote=origin --push
+```
+
+Manual remote add:
+
+```powershell
+git remote add origin https://github.com/<your-username>/<repo-name>.git
+git branch -M main
+git push -u origin main
+```
+
+Replace `<your-username>` and `<repo-name>` with your values.
+
+## Admin account notes and verification
+
+If you want to verify or reset the example admin account (`Admin` / `Admin@123`) run:
+
+```powershell
+cd "C:\Users\HP\Desktop\my code\Python Codewithharry\Django\userproject"
+python manage.py shell
+
+# In the Django shell:
+from django.contrib.auth.models import User
+User.objects.filter(username='Admin').values('username','is_superuser')
+u = User.objects.get(username='Admin')
+u.set_password('Admin@123')
+u.save()
+```
+
+Or create a new superuser interactively (recommended):
+
+```powershell
+python manage.py createsuperuser
+```
+
+Security reminder: never commit real credentials into a repo. If you push this repository publicly, remove credential notes from the README or change the example credentials immediately.
+
 # Django Multi-Project Workspace
 
 This repository contains two Django projects used for learning and demos:
