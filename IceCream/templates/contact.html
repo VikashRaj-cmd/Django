@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Contact{% endblock title %}
+
+{% block body %}
+<div class="container-fluid px-0 mb-3">
+    <img src="https://media.istockphoto.com/id/1988746299/photo/contact-us-or-customer-support-hotline-people-connect-businessman-touching-on-virtual-screen.jpg?s=612x612&w=0&k=20&c=6MPb686I5EnvMx37fpT4FLayQyWQibzCoQM9IlLZ2jY=" 
+     class="d-block w-100 mx-0" 
+     alt="Contact Us or Customer Support" 
+     height="500" 
+     width="500" 
+     style="image-rendering: high-quality; object-fit: cover;">
+</div>
+<div class="container mb-3 py-4">
+  <h1 class="text-center">Contact Us</h1>
+
+  <form method="POST" action="/contact">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+    </div>
+    <div class="mb-3">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+    </div>
+    <div class="mb-3">
+      <label for="phone">Phone Number</label>
+      <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter your Phone Number">
+    </div>
+    <div class="mb-3">
+      <label for="desc">Tell me about what you want to contact me for...</label>
+      <textarea class="form-control" id="desc" rows="3" name="desc"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
+</div>
+{% endblock body %}
