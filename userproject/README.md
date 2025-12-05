@@ -1,62 +1,47 @@
-# userproject (Django demo)
+# User Project Django Application
 
-This project contains a simple login flow and templates for a demo site.
+A Django project demonstrating user authentication and login functionality.
 
-Local development admin credential (example only):
+## Features
 
-- username: `Admin`
-- password: `Admin@123`
+- User authentication system
+- Login/logout functionality
+- Template-based UI
+- Admin interface
 
-Please NOTE:
-- These credentials are for local testing only. Do NOT push real credentials to GitHub or share them publicly.
-- If you plan to publish this repository publicly, remove or change credentials and add instructions to create an admin account via `createsuperuser`.
+## Setup
 
-How to verify or reset the admin password:
+1. **Navigate to project directory**
+   ```bash
+   cd userproject
+   ```
 
-```powershell
-cd "C:\Users\HP\Desktop\my code\Python Codewithharry\Django\userproject"
-python manage.py shell
+2. **Install dependencies**
+   ```bash
+   pip install django
+   ```
 
-# In the Django shell:
-from django.contrib.auth.models import User
-User.objects.filter(username='Admin').values('username','is_superuser')
-u = User.objects.get(username='Admin')
-u.set_password('Admin@123')
-u.save()
-```
+3. **Run migrations**
+   ```bash
+   python manage.py migrate
+   ```
 
-Or create a new superuser interactively:
+4. **Create superuser**
+   ```bash
+   python manage.py createsuperuser
+   ```
 
-```powershell
-python manage.py createsuperuser
-```
-# userproject (Django project)
+5. **Start development server**
+   ```bash
+   python manage.py runserver
+   ```
 
-This is the `userproject` Django project. It contains a `home` app and templates under `templates/`.
+6. **Access the application**
+   - Main site: http://127.0.0.1:8000/
+   - Admin panel: http://127.0.0.1:8000/admin/
 
-Quickstart
+## Project Structure
 
-1. Create and activate a Python virtual environment:
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-```
-
-2. Install dependencies (if you have a `requirements.txt` in this folder):
-
-```powershell
-pip install -r requirements.txt
-```
-
-3. Apply migrations and start dev server:
-
-```powershell
-python manage.py migrate
-python manage.py runserver
-```
-
-4. Visit http://127.0.0.1:8000/ to view the site.
-
-Notes
-- This project also uses SQLite (`db.sqlite3`) located in `userproject/` for local development.
+- `home/` - Main application with authentication views
+- `templates/` - HTML templates for login and main pages
+- `userproject/` - Project configuration

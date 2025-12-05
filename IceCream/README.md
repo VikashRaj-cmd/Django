@@ -1,44 +1,61 @@
-# Hello (Django demo)
+# IceCream Django Project
 
-This is a small Django demo project used for tutorial purposes.
+A Django web application for an ice cream shop featuring multiple pages, contact forms, and responsive design.
 
-Run (inside the `Hello` folder):
+## Features
 
-```powershell
-python manage.py runserver
-```
+- **Multi-page website** with navigation
+- **Contact form** with database storage
+- **Bootstrap responsive design**
+- **Template inheritance** using base.html
+- **Static file handling** for images
+- **Admin interface** for managing contacts
 
-Notes:
-- Database file `db.sqlite3` may exist in this folder. It's ignored by the root `.gitignore`.
-- Do not commit real credentials or secrets to a public repository.
-# Hello (Django project)
+## Setup
 
-This is the `Hello` Django project. It contains a `home` app and templates under `templates/`.
+1. **Navigate to project directory**
+   ```bash
+   cd IceCream
+   ```
 
-Quickstart
+2. **Install dependencies**
+   ```bash
+   pip install django
+   ```
 
-1. Create and activate a Python virtual environment:
+3. **Run migrations**
+   ```bash
+   python manage.py migrate
+   ```
 
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-```
+4. **Create superuser (optional)**
+   ```bash
+   python manage.py createsuperuser
+   ```
 
-2. Install dependencies (if you have a `requirements.txt` in this folder):
+5. **Start development server**
+   ```bash
+   python manage.py runserver
+   ```
 
-```powershell
-pip install -r requirements.txt
-```
+6. **Visit the application**
+   - Main site: http://127.0.0.1:8000/
+   - Admin panel: http://127.0.0.1:8000/admin/
 
-3. Apply migrations and start dev server:
+## Project Structure
 
-```powershell
-python manage.py migrate
-python manage.py runserver
-```
+- `home/` - Main application with views, models, and URLs
+- `templates/` - HTML templates (base.html, index.html, about.html, services.html, contact.html)
+- `static/img/` - Static images
+- `IceCream/` - Project configuration and settings
 
-4. Visit http://127.0.0.1:8000/ to view the site.
+## Pages
 
-Notes
-- The project uses SQLite (`db.sqlite3`) located in this folder for local development.
-- If templates or static files don't load, ensure `DEBUG = True` in `Hello/settings.py` during development.
+- **Home** (`/`) - Welcome page with ice cream showcase
+- **About** (`/about`) - Information about the ice cream shop
+- **Services** (`/services`) - Available ice cream products and services
+- **Contact** (`/contact`) - Contact form for customer inquiries
+
+## Models
+
+- **Contact** - Stores customer contact form submissions with fields for name, email, phone, and description

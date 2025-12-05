@@ -1,5 +1,5 @@
 """
-URL configuration for Hello project.
+URL configuration for IceCream project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -17,11 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-admin.site.site_header = "Vikash Ice Cream Admin"
-admin.site.site_title = "Vikash Ice Cream Admin Portal"
-admin.site.index_title = "Welcome to Vikash Ice Creams"
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('home.urls'))
+    path('', include('home.urls')),
 ]
